@@ -1,3 +1,4 @@
+pub mod bitcoin_api_calls;
 pub mod create_keys;
 pub mod helpers;
 pub mod p2tr_transactions;

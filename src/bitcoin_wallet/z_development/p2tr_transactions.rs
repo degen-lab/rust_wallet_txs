@@ -9,7 +9,7 @@
 // each step here
 // function that creates OP_CODE scripts for branches
 
-use std::{collections::BTreeMap, str::FromStr};
+use std::{borrow::Cow, collections::BTreeMap, str::FromStr};
 
 use bitcoin::{
     blockdata::{block, opcodes::all, script::Builder},
@@ -30,6 +30,8 @@ use bitcoin_hashes::{
 };
 // use bitcoin_hashes::serde::Serialize;
 use electrum_client::{Client, ElectrumApi};
+use serde;
+use ureq;
 
 use crate::bitcoin_wallet::z_development::helpers;
 
@@ -209,9 +211,10 @@ pub fn test_main() {
 
     // println!("preimage {}", preimage_hash.to_string());
 
-    let client = Client::new("ssl://electrum.blockstream.info:60002").unwrap();
+    let client = Client::new("https://frosty-dry-haze.btc-testnet.quiknode.pro/").unwrap();
     // get the current block height using the client
     let block_height = helpers::get_current_block_height(&client);
+    return;
 
     // write it for 2 blocks from this moment
     // new address is this

@@ -76,6 +76,8 @@ pub fn create_tree(
 }
 
 pub fn get_current_block_height(client: &Client) -> usize {
+    // let height = client.raw_call("getblockcount", []);
+    // println!("this is block height xxxxxx {:#?}", height);
     client.block_headers_subscribe().unwrap().height
 }
 
